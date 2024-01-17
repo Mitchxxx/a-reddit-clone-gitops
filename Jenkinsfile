@@ -9,7 +9,7 @@ pipeline {
         cleanWs()
       } 
     }
-    stage(Checkout from SCM){
+    stage(Checkout from Git){
       step{
          git branch: 'main', credentialsId: 'github', url: 'https://github.com/Mitchxxx/a-reddit-clone-gitops'
       } 
