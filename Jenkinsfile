@@ -14,7 +14,7 @@ pipeline {
          git branch: 'main', credentialsId: 'github', url: 'https://github.com/Mitchxxx/a-reddit-clone-gitops'
       } 
     }
-    stage(Update the Deployment tags){
+    stage(Update deployment tags){
       step{
          sh """
              cat deployment.yaml
