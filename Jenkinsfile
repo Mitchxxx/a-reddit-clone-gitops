@@ -5,17 +5,17 @@ pipeline {
   }
   stages {
     stage('Clean Workspace'){
-      step{
+      steps{
         cleanWs()
       } 
     }
     stage('Checkout from Git'){
-      step{
+      steps{
          git branch: 'main', credentialsId: 'github', url: 'https://github.com/Mitchxxx/a-reddit-clone-gitops'
       } 
     }
     stage('Update deployment tags'){
-      step{
+      steps{
          sh """
              cat deployment.yaml
              sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' deployment.yaml
@@ -24,7 +24,7 @@ pipeline {
       } 
     }
     stage('Push updated Deployment repo'){
-      step{
+      steps{
          sh """
              git config --global user.name "Mitchxxx"
              git config --global user.email "megboko@gmail.com"
