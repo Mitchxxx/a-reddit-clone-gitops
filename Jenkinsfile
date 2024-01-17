@@ -4,17 +4,17 @@ pipeline {
     APP_NAME = "reddit-clone-app"
   }
   stages {
-    stage(Clean Workspace){
+    stage('Clean Workspace'){
       step{
         cleanWs()
       } 
     }
-    stage(Checkout from Git){
+    stage('Checkout from Git'){
       step{
          git branch: 'main', credentialsId: 'github', url: 'https://github.com/Mitchxxx/a-reddit-clone-gitops'
       } 
     }
-    stage(Update deployment tags){
+    stage('Update deployment tags'){
       step{
          sh """
              cat deployment.yaml
@@ -23,7 +23,7 @@ pipeline {
             """
       } 
     }
-    stage(Push updated Deployment repo){
+    stage('Push updated Deployment repo'){
       step{
          sh """
              git config --global user.name "Mitchxxx"
