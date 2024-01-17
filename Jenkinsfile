@@ -23,7 +23,7 @@ pipeline {
             """
       } 
     }
-    stage(Push the changed Deployment to the repo){
+    stage(Push updated Deployment repo){
       step{
          sh """
              git config --global user.name "Mitchxxx"
